@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;LCD_ESS&apos;" deleteContents="false" description="Delete resource &apos;LCD_ESS&apos;" element1="/LCD_ESS" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1694348708032"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DIO_3/DIO_initial.c&apos; to &apos;DIO_interface.c&apos;" description="Rename resource &apos;DIO_initial.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="DIO_initial.c" name="DIO_interface.c" stamp="1676301036553" updateReferences="true"/>
+</session>

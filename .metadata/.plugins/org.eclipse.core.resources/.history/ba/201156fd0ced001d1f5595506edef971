@@ -1,0 +1,27 @@
+/*
+ * DIO_interface.h
+ *
+ *  Created on: Feb 13, 2023
+ *      Author: Ahmad
+ */
+
+#ifndef DIO_DIO_INTERFACE_H_
+#define DIO_DIO_INTERFACE_H_
+
+#define DIO_PORTA 0
+#define DIO_PORTB 1
+#define DIO_PORTC 2
+#define DIO_PORTD 3
+
+#define DIO_OUTPUT 1
+#define DIO_INPUT 0
+
+void DIO_SETPinDirection(u8 portno , u8 pinno, u8 direction);
+void DIO_SETPinValue(u8 portno , u8 pinno, u8 direction);
+u8 DIO_GETPinValue(u8 portno , u8 pinno);
+
+void DIO_SETPortDirection(u8 portno, u8 direction);
+void DIO_SETPortValue(u8 portno , u8 direction);
+u8 DIO_GETPortValue(u8 portno );
+
+#endif /* DIO_DIO_INTERFACE_H_ */

@@ -1,0 +1,52 @@
+07:51:45 **** Incremental Build of configuration Release for project DIO_3 ****
+make all 
+Building file: ../SSD/SSD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"SSD/SSD_program.d" -MT"SSD/SSD_program.o" -c -o "SSD/SSD_program.o" "../SSD/SSD_program.c"
+Finished building: ../SSD/SSD_program.c
+ 
+Building file: ../DIO/DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO/DIO_program.d" -MT"DIO/DIO_program.o" -c -o "DIO/DIO_program.o" "../DIO/DIO_program.c"
+Finished building: ../DIO/DIO_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: DIO_3.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DIO_3.map -mmcu=atmega32 -o "DIO_3.elf"  ./SSD/SSD_program.o  ./DIO/DIO_program.o  ./main.o   
+Finished building target: DIO_3.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DIO_3.elf  >"DIO_3.lss"
+Finished building: DIO_3.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex DIO_3.elf  "DIO_3.hex"
+Finished building: DIO_3.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex DIO_3.elf  "DIO_3.eep"
+Finished building: DIO_3.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DIO_3.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     850 bytes (2.6% Full)
+(.text + .data + .bootloader)
+
+Data:         10 bytes (0.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:51:47 Build Finished (took 2s.619ms)
+

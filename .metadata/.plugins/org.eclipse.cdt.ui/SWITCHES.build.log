@@ -1,0 +1,20 @@
+09:58:35 **** Incremental Build of configuration Release for project SWITCHES ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SWITCHES.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1850 bytes (5.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+09:58:36 Build Finished (took 1s.460ms)
+

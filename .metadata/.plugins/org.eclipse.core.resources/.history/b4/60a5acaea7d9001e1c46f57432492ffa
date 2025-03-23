@@ -1,0 +1,31 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 25, 2024
+ *      Author: Ahmad
+ */
+
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
+#include "DIO/DIO_interface.h"
+#include "ADC/ADC_interface.h"
+#include "LCD/LCD_interface.h"
+
+
+int main(void)
+{
+	LCD_Init();
+	ADC_Init();
+	u16 digital_value=0;
+	while(1)
+	{
+		digital_value = ADC_ReadDigitalValue(0);
+		LCD_SendCommand(LCD_CLEAR());
+		LCD_PrintNumber(digital_value);
+		_delay_ms(1000);
+
+
+	}
+}
+
+

@@ -1,0 +1,71 @@
+04:08:38 **** Build of configuration Release for project ADC ****
+make all 
+Building file: ../LCD/LCD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LCD/LCD_program.d" -MT"LCD/LCD_program.o" -c -o "LCD/LCD_program.o" "../LCD/LCD_program.c"
+Finished building: ../LCD/LCD_program.c
+ 
+Building file: ../DIO/DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO/DIO_program.d" -MT"DIO/DIO_program.o" -c -o "DIO/DIO_program.o" "../DIO/DIO_program.c"
+Finished building: ../DIO/DIO_program.c
+ 
+Building file: ../ADC/ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ADC/ADC_program.d" -MT"ADC/ADC_program.o" -c -o "ADC/ADC_program.o" "../ADC/ADC_program.c"
+In file included from ../ADC/ADC_program.c:11:
+../ADC/ADC_interface.h:12: warning: data definition has no type or storage class
+../ADC/ADC_interface.h:12: warning: type defaults to 'int' in declaration of 'ADC_ReadDigitalValue'
+../ADC/ADC_interface.h:13: warning: data definition has no type or storage class
+../ADC/ADC_interface.h:13: warning: type defaults to 'int' in declaration of 'ADC_StartConversion'
+../ADC/ADC_program.c:33: warning: return type defaults to 'int'
+../ADC/ADC_program.c:49: warning: return type defaults to 'int'
+../ADC/ADC_program.c: In function 'ADC_StartConversion':
+../ADC/ADC_program.c:51: warning: control reaches end of non-void function
+Finished building: ../ADC/ADC_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+../ADC/ADC_interface.h:12: warning: data definition has no type or storage class
+../ADC/ADC_interface.h:12: warning: type defaults to 'int' in declaration of 'ADC_ReadDigitalValue'
+../ADC/ADC_interface.h:13: warning: data definition has no type or storage class
+../ADC/ADC_interface.h:13: warning: type defaults to 'int' in declaration of 'ADC_StartConversion'
+Finished building: ../main.c
+ 
+Building target: ADC.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC.map -mmcu=atmega32 -o "ADC.elf"  ./LCD/LCD_program.o  ./DIO/DIO_program.o  ./ADC/ADC_program.o  ./main.o   
+Finished building target: ADC.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC.elf  >"ADC.lss"
+Finished building: ADC.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC.elf  "ADC.hex"
+Finished building: ADC.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ADC.elf  "ADC.eep"
+Finished building: ADC.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1756 bytes (5.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+04:08:43 Build Finished (took 5s.714ms)
+

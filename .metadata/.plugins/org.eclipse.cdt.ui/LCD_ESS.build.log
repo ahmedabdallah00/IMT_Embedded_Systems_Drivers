@@ -1,0 +1,44 @@
+07:29:28 **** Incremental Build of configuration Release for project LCD_ESS ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:23: warning: unused variable 'heart'
+Finished building: ../main.c
+ 
+Building target: LCD_ESS.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LCD_ESS.map -mmcu=atmega32 -o "LCD_ESS.elf"  ./LCD/LCD_program.o  ./DIO/DIO_program.o  ./main.o   
+Finished building target: LCD_ESS.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S LCD_ESS.elf  >"LCD_ESS.lss"
+Finished building: LCD_ESS.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex LCD_ESS.elf  "LCD_ESS.hex"
+Finished building: LCD_ESS.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex LCD_ESS.elf  "LCD_ESS.eep"
+Finished building: LCD_ESS.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LCD_ESS.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1860 bytes (5.7% Full)
+(.text + .data + .bootloader)
+
+Data:         32 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:29:29 Build Finished (took 834ms)
+

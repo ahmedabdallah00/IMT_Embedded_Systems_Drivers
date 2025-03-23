@@ -1,0 +1,90 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 27, 2022
+ *      Author: Ahmad
+ */
+
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#define EX1  1
+#define EX2  0
+#define EX3  0
+#define EX4  0
+
+int main(void)
+{
+
+#if EX1
+	/* setup, initialization , conifigration  */
+	 SET_BIT(DDRA, 0); // PA0 -> output
+	while(1)
+	{
+
+		SET_BIT(PORTA, 0); // PA0 -> HIGH (5V)
+		_delay_ms(1000);
+		CLR_BIT(PORTA, 0); // PA0 -> LOW (0V)
+		_delay_ms(1000);
+	}
+#endif
+
+
+#if EX2
+	DDRA = 0xff ;
+	while(1)
+	{
+
+		for(int i=0; i<256 ; i++)
+			{
+				PORTA= i ;
+				_delay_ms(500);
+			}
+
+		}
+	}
+#endif
+
+#if EX3
+
+	DDRA = 0xff;
+
+	u8 numbers[] = {
+		0b11111100,
+		0b01100000,
+		0b11011010
+	};
+
+	u8 numbers_size=sizeof(numbers)/sizeof(numbers[0]);
+
+	while(1)
+	{
+		for(u8 i=0; i<numbers_size; i++)
+		{
+			PORTA = numbers[i];
+			_delay_ms(500);
+		}
+	}
+#endif
+
+#if EX4
+
+	SET_BIT(DDRA, 0);  // PA0 -> output
+	CLR_BIT(DDRB, 0); // PB0 -> input
+	SET_BIT(PORTB, 0); // PB0 -> PUll up resistor ON
+
+	while(1)
+	{
+		if( GET_BIT(PINB, 0) == 0 ) // switch is on
+		{
+			SET_BIT(PORTA, 0);
+		}
+		else
+		{
+			CLR_BIT(PORTA, 0);
+		}
+	}
+#endif
